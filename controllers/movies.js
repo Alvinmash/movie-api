@@ -4,6 +4,8 @@ const getAllMovies = (request, response) => {
   return response.send(movies)
 }
 
+
+
 const getMovieByTitle = (request, response) => {
   const { title } = request.params
 
@@ -13,6 +15,19 @@ const getMovieByTitle = (request, response) => {
     ? response.send(movie)
     : response.status(404).send('movie not found')
 }
+
+
+const getMovieByDirectors = (request, response) => {
+  const { directors } = request.params
+
+  const movie = directors.find((director) => movie.director === director.toLowerCase())
+
+  return directors
+    ? response.send(directors)
+    : response.status(404).send('movie not found')
+}
+
+
 
 const allMovies = (request, response) => {
   const {
@@ -33,4 +48,4 @@ const allMovies = (request, response) => {
 }
 
 
-module.exports = { getAllMovies, getMovieByTitle, allMovies }
+module.exports = { getAllMovies, getMovieByTitle, allMovies, getMovieByDirectors }
