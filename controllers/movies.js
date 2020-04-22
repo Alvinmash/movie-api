@@ -24,7 +24,7 @@ const getMovieByDirectors = (request, response) => {
 
   return directors
     ? response.send(directors)
-    : response.status(404).send('movie not found')
+    : response.status(404).send('director  not found')
 }
 
 
